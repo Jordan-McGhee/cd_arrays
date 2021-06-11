@@ -15,19 +15,27 @@ function pushFront(arr, val){
 // Pop Front
 // Given an array, remove and return the value at the beginning of the array. Do this without using any built-in array methods except pop().
 
+let arr = [0,1,2,3,4,5]
 function popFront(arr){
+    // store first value in arr to return at the end
     let val = arr[0]
 
+    // iterate over list from index 0 til the end
     for (i=0; i<arr.length; i++){
+        // for every value in our array, we want to replace the current value at arr[i] with the next value, arr[i+1]. This is how we will remove the first value in the list. Essentially sliding values one spot over to the left.
+
         arr[i] = arr[i+1]
     }
+
+    // after we finish the loop, our arr will look like > [1,2,3,4,5,undefined], we need to remove the undefined in the list to make up for taking off the first value
+    
+    // do this by changing the value of arr.length. Set current arr.length (6) to arr.length-1 (5)
     arr.length = arr.length-1
-    console.log(arr)
     
     return val
 }
 
-// console.log(popFront([0,1,2,3,4,5]))
+console.log(popFront(arr))
 
 // Insert At
 // Given an array, index, and additional value, insert the value into array at given index. Do this without using built-in array methods. You can think of pushFront(arr,val) as equivalent to insertAt(arr,0,val).
@@ -108,5 +116,5 @@ function removeDupes(arr){
     return arr
 }
 
-console.log(removeDupes(arr1))
-console.log(removeDupes(arr2))
+// console.log(removeDupes(arr1))
+// console.log(removeDupes(arr2))
