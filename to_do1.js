@@ -85,14 +85,28 @@ function swapPairs(arr){
 
 // Remove Duplicates
 // Sara is looking to hire an awesome web developer and has received applications from various sources. Her assistant alphabetized them but noticed some duplicates. Given a sorted array, remove duplicate values. Because array elements are already in order, all duplicate values will be grouped together. As with all these array challenges, do this without using any built-in array methods.
-let arr = [0,0,1,1,1,2,2,3,4,5,5]
-// need to keep track of how many unique values are in list
-// need to move unique values to front
-// use unique value count to change length of arr and return that
+let arr1 = [0,0,1,1,1,2,2,3,4,5,5]
+let arr2 = [0,1,1,2,3,4,5,5]
 
-// Second: Solve this without using any nested loops.
+function removeDupes(arr){
+    let index = 1 // index for where we store nonduplicate values
+    let compare = arr[0] // value to compare against to check for duplicate
 
+    for (i=1; i < arr.length; i++){
+        // if value isn't a duplicate
+        if (arr[i] != compare){
+            // set compare to that new value
+            compare = arr[i]
+            // change arr at our index variable to arr[i]
+            arr[index] = arr[i]
+            // increment our index variable so we can store the next non-duplicate value
+            index++
+        }
+    }
+    arr.length = index // cut off end values, leaving only non-duplicates
 
-function removeDupes2(arr){
-
+    return arr
 }
+
+console.log(removeDupes(arr1))
+console.log(removeDupes(arr2))
